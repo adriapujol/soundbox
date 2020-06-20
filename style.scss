@@ -1,36 +1,157 @@
+@mixin centerThings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root {
+    font-size: 18px;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
     font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 
     .container {
-        height: 100vh;
-        width: 100vw;
-        background-color: red;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        min-height: 100vh;
+        width: 100%;
+        background-image: linear-gradient(135deg, #000046, #3434ca);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        @include centerThings();
+        flex-direction: column;
+
+        .title {
+            // color: rgb(0, 255, 0);
+            @include centerThings();
+            flex-direction: column;
+            margin-bottom: 50px;
+            color: rgba(0, 255, 0, 0.9);
+            // background-image: linear-gradient(135deg, rgba(0, 255, 0, 0.7), rgba(0, 255, 0, 1));
+            // background-clip: text;
+            // -webkit-background-clip: text;
+            // -moz-background-clip: text;
+            // -webkit-text-fill-color: transparent; 
+            // -moz-text-fill-color: transparent;
+
+            @media only screen and (max-width: 600px) {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 7rem;
+                animation: 0.5s ease-out leftRight;
+                animation-fill-mode: backwards;
+
+                @media only screen and (max-width: 600px) {
+                    font-size: 3rem;
+                }
+
+
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                animation: 0.3s ease-out rightLeft;
+                animation-delay: 1.5s;
+                animation-fill-mode: backwards;
+                @media only screen and (max-width: 600px) {
+                    font-size: 0.8rem;
+                }
+            }
+        }
 
         .keys {
-            display: grid;
-            grid-template: {
-                columns: repeat(9, 1fr);
-            }
-            grid-gap: 5px;
-            width: 80vw;
+            display: flex;
+            flex-wrap: wrap;
+            // height: 100%;
+            width: 80%;
+            justify-content: space-evenly;
+            align-items: center;
+
 
 
             .key {
+                @include centerThings();
                 background-color: white;
+                height: 100px;
+                width: 100px;
                 padding: 20px;
-                // padding: 20px;
-                // margin: 5px;
+                margin: 10px;
+                border: 5px solid rgb(0, 255, 0);
+                border-radius: 50%;
+                transition: all 0.07s ease-in-out;
+                animation: 0.1s ease-out downUp;
+                animation-fill-mode: backwards;
+                
+                
+                @media only screen and (max-width: 500px) {
+                    height: 70px;
+                    width: 70px;
+                    margin: 5px;
+                }
+            }
+            @for $i from 1 through 9 {
+                .key:nth-child(#{$i}n) {
+                    animation-delay: #{0.3 + $i * 0.125}s; 
+                }
+            }
+            
+
+            .playing {
+                transform: scale(1.2);
+                background-image: linear-gradient(rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0.5));
+                border: 5px solid rgb(229, 255, 0);
+                font-weight: bold;
+            }
+
+            .key-showing {
+                background-color: black;
             }
         }
+    }
+}
+
+@keyframes leftRight {
+    0% {
+        transform: translateX(-150px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+}
+
+@keyframes rightLeft {
+    0% {
+        transform: translateX(150px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+}
+
+@keyframes downUp {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
     }
 }

@@ -1,3 +1,7 @@
+:root {
+  font-size: 18px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,24 +10,150 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  overflow: hidden;
 }
 body .container {
-  height: 100vh;
-  width: 100vw;
-  background-color: red;
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(135deg, #000046, #3434ca);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+body .container .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+  color: rgba(0, 255, 0, 0.9);
+}
+@media only screen and (max-width: 600px) {
+  body .container .title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+body .container .title h1 {
+  font-size: 7rem;
+  animation: 0.5s ease-out leftRight;
+  animation-fill-mode: backwards;
+}
+@media only screen and (max-width: 600px) {
+  body .container .title h1 {
+    font-size: 3rem;
+  }
+}
+body .container .title h3 {
+  font-size: 1.5rem;
+  animation: 0.3s ease-out rightLeft;
+  animation-delay: 1.5s;
+  animation-fill-mode: backwards;
+}
+@media only screen and (max-width: 600px) {
+  body .container .title h3 {
+    font-size: 0.8rem;
+  }
 }
 body .container .keys {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-gap: 5px;
-  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 body .container .keys .key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: white;
+  height: 100px;
+  width: 100px;
   padding: 20px;
+  margin: 10px;
+  border: 5px solid lime;
+  border-radius: 50%;
+  transition: all 0.07s ease-in-out;
+  animation: 0.1s ease-out downUp;
+  animation-fill-mode: backwards;
+}
+@media only screen and (max-width: 500px) {
+  body .container .keys .key {
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+  }
+}
+body .container .keys .key:nth-child(1n) {
+  animation-delay: 0.425s;
+}
+body .container .keys .key:nth-child(2n) {
+  animation-delay: 0.55s;
+}
+body .container .keys .key:nth-child(3n) {
+  animation-delay: 0.675s;
+}
+body .container .keys .key:nth-child(4n) {
+  animation-delay: 0.8s;
+}
+body .container .keys .key:nth-child(5n) {
+  animation-delay: 0.925s;
+}
+body .container .keys .key:nth-child(6n) {
+  animation-delay: 1.05s;
+}
+body .container .keys .key:nth-child(7n) {
+  animation-delay: 1.175s;
+}
+body .container .keys .key:nth-child(8n) {
+  animation-delay: 1.3s;
+}
+body .container .keys .key:nth-child(9n) {
+  animation-delay: 1.425s;
+}
+body .container .keys .playing {
+  transform: scale(1.2);
+  background-image: linear-gradient(rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0.5));
+  border: 5px solid #e5ff00;
+  font-weight: bold;
+}
+body .container .keys .key-showing {
+  background-color: black;
+}
+
+@keyframes leftRight {
+  0% {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes rightLeft {
+  0% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes downUp {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

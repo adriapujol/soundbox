@@ -9,50 +9,63 @@
         <title>Soundbox</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div class="container">
-            <div class="keys">
-                <div data-key="65" class="key">
-                    <kbd>A</kbd>    
+            <div class="title">
+                <h1>The NO</h1>
+                <h3>Get told no however you like</h3>
+            </div>
+            <div class="keys" id="keys">
+                <div data-key="65" class="key" id="65">A<span class="sound"></span></div>
+                <div data-key="83" class="key" id="83">
+                    S   
                     <span class="sound"></span>
                 </div>
-                <div data-key="83" class="key">
-                    <kbd>S</kbd>    
+                <div data-key="68" class="key" id="68">
+                    D  
                     <span class="sound"></span>
                 </div>
-                <div data-key="68" class="key">
-                    <kbd>D</kbd>    
+                <div data-key="70" class="key" id="70">
+                    F  
                     <span class="sound"></span>
                 </div>
-                <div data-key="70" class="key">
-                    <kbd>F</kbd>    
+                <div data-key="71" class="key" id="71">
+                    G  
                     <span class="sound"></span>
                 </div>
-                <div data-key="71" class="key">
-                    <kbd>G</kbd>    
+                <div data-key="72" class="key" id="72">
+                    H  
                     <span class="sound"></span>
                 </div>
-                <div data-key="72" class="key">
-                    <kbd>H</kbd>    
+                <div data-key="74" class="key" id="74">
+                    J
                     <span class="sound"></span>
                 </div>
-                <div data-key="74" class="key">
-                    <kbd>J</kbd>    
+                <div data-key="75" class="key" id="75">
+                    K   
                     <span class="sound"></span>
                 </div>
-                <div data-key="75" class="key">
-                    <kbd>K</kbd>    
-                    <span class="sound"></span>
-                </div>
-                <div data-key="76" class="key">
-                    <kbd>L</kbd>    
+                <div data-key="76" class="key" id="76">
+                    L    
                     <span class="sound"></span>
                 </div>
             </div>
         </div>
+
+
+        <audio data-key="65" id="audio-65" src="sounds/clap.wav"></audio>
+        <audio data-key="83" id="audio-83" src="sounds/hihat.wav"></audio>
+        <audio data-key="68" id="audio-68" src="sounds/kick.wav"></audio>
+        <audio data-key="70" id="audio-70" src="sounds/openhat.wav"></audio>
+        <audio data-key="71" id="audio-71" src="sounds/boom.wav"></audio>
+        <audio data-key="72" id="audio-72" src="sounds/ride.wav"></audio>
+        <audio data-key="74" id="audio-74" src="sounds/snare.wav"></audio>
+        <audio data-key="75" id="audio-75" src="sounds/tom.wav"></audio>
+        <audio data-key="76" id="audio-76" src="sounds/tink.wav"></audio>
         
         <script src="app.js" async defer></script>
     </body>
